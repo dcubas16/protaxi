@@ -1,0 +1,10 @@
+/target
+target
+target/
+/target/
+/protaxi/target
+/WebContent
+*/target/*
+*/target/**
+target/*
+target/**
