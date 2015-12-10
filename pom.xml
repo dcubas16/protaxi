@@ -16,6 +16,12 @@
 		<gcloud.plugin.version>2.0.9.74.v20150814</gcloud.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+		
+		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
+		<junit.version>4.11</junit.version>
+		<hibernate-core-version>4.3.5.Final</hibernate-core-version>
+		<commons-dbcp2-version>2.0</commons-dbcp2-version>
+		<mysql-connector-java-version>5.1.30</mysql-connector-java-version>
 	</properties>
 
 	<prerequisites>
@@ -71,6 +77,57 @@
 			<version>${appengine.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core-version}</version>
+		</dependency>
+
+		<!-- Apache Database Connection Pool -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${commons-dbcp2-version}</version>
+		</dependency>
+
+		<!-- MySQL JDBC Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java-version}</version>
+		</dependency>
+		
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
