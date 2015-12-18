@@ -10,9 +10,9 @@
 		
 <!-- 		<property name="hbm2ddl.auto">create-drop</property> -->
 		<property name="hbm2ddl.auto">create</property>
-<!-- 		<property name="import_files">/import.sql</property> -->
+		<property name="import_files">/import.sql</property>
 
-<!-- 		<mapping class="org.greypowergaeservices.entities.Image" /> -->
+		<mapping class="org.protaxi.entities.Client" />
 <!-- 		<mapping class="org.greypowergaeservices.entities.Material" /> -->
 <!-- 		<mapping class="org.greypowergaeservices.entities.Size" /> -->
 <!-- 		<mapping class="org.greypowergaeservices.entities.Product" /> -->

@@ -1,9 +1,9 @@
 package org.protaxi.services;
 
-import org.protaxi.entities.Client;
+import org.protaxi.business.ClientFactory;
 
 public interface ClientService {
 	
-	public int createNaturalPersonClient(Client client);
+	public int createClient(ClientFactory clientFactory);
 	
 }
