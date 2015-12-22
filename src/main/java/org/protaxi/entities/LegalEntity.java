@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "NATURAL_PERSON")
+@Table(name = "LEGAL_ENTITY")
 @AttributeOverrides({
 	@AttributeOverride(name="identityDocTypeId", column=@Column(name="IDENTITY_DOC_TYPE_ID")),
 	@AttributeOverride(name="identityDoc", column=@Column(name="IDENTITY_DOC")),
@@ -16,71 +16,85 @@ public class LegalEntity  extends Client{
 
 	private static final long serialVersionUID = -3861872839322143547L;
 
-	@Column(name="LAST_NAME")
-	private String lastName;
+	@Column(name="LAST_NAME", nullable = false)
+	private String businessName;
 	
-	@Column(name="SECOND_LAST_NAME")
-	private String secondLastName;
+	@Column(name="PHONE_NUMBER", nullable = false)
+	private String contactPhoneNumber;
 	
-	@Column(name="NAME")
-	private String name;
-	
-	@Column(name="PHONE_NUMBER")
-	private String phoneNumber;
-	
-	@Column(name="CELLPHONE_NUMBER")
-	private String cellphoneNumber;
+	@Column(name="CELLPHONE_NUMBER", nullable = false)
+	private String contactCellphoneNumber;
 	
 	@Column(name="HOME_ADDRESS")
-	private String homeAddress;
+	private String address;
 
-
-	public String getLastName() {
-		return lastName;
+	public LegalEntity() {
+		super();
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public LegalEntity(int id, int identityDocTypeId, String identityDoc,
+			String email, String nickName, String photo, String businessName,
+			String contactPhoneNumber, String contactCellphoneNumber,
+			String address) {
+		super(id, identityDocTypeId, identityDoc, email, nickName, photo);
+		this.businessName = businessName;
+		this.contactPhoneNumber = contactPhoneNumber;
+		this.contactCellphoneNumber = contactCellphoneNumber;
+		this.address = address;
 	}
 
-	public String getSecondLastName() {
-		return secondLastName;
+	public LegalEntity(int identityDocTypeId, String identityDoc, String email,
+			String nickName, String photo, String businessName,
+			String contactPhoneNumber, String contactCellphoneNumber,
+			String address) {
+		super(identityDocTypeId, identityDoc, email, nickName, photo);
+		this.businessName = businessName;
+		this.contactPhoneNumber = contactPhoneNumber;
+		this.contactCellphoneNumber = contactCellphoneNumber;
+		this.address = address;
 	}
 
-	public void setSecondLastName(String secondLastName) {
-		this.secondLastName = secondLastName;
+	public LegalEntity(String businessName, String contactPhoneNumber,
+			String contactCellphoneNumber, String address) {
+		super();
+		this.businessName = businessName;
+		this.contactPhoneNumber = contactPhoneNumber;
+		this.contactCellphoneNumber = contactCellphoneNumber;
+		this.address = address;
 	}
 
-	public String getName() {
-		return name;
+	public String getBusinessName() {
+		return businessName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getContactPhoneNumber() {
+		return contactPhoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setContactPhoneNumber(String contactPhoneNumber) {
+		this.contactPhoneNumber = contactPhoneNumber;
 	}
 
-	public String getCellphoneNumber() {
-		return cellphoneNumber;
+	public String getContactCellphoneNumber() {
+		return contactCellphoneNumber;
 	}
 
-	public void setCellphoneNumber(String cellphoneNumber) {
-		this.cellphoneNumber = cellphoneNumber;
+	public void setContactCellphoneNumber(String contactCellphoneNumber) {
+		this.contactCellphoneNumber = contactCellphoneNumber;
 	}
 
-	public String getHomeAddress() {
-		return homeAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setHomeAddress(String homeAddress) {
-		this.homeAddress = homeAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
+
 	
 }

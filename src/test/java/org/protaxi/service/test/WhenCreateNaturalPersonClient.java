@@ -2,6 +2,8 @@ package org.protaxi.service.test;
 
 
 import static org.junit.Assert.assertNotNull;
+
+import org.hibernate.PropertyValueException;
 import org.junit.Test;
 import org.protaxi.business.ClientFactory;
 import org.protaxi.services.ClientService;
@@ -29,4 +31,22 @@ public class WhenCreateNaturalPersonClient extends TestConfigurator {
 		assertNotNull(uuid);
 	}
 	
+	@Test(expected = PropertyValueException.class)
+	public void ifRequieredNaturalPersonFieldsAreNotCompleteThenShouldReturnException(){
+		
+		naturalPersonManager.setClient(ClientMother.getIncompleteNaturalPersonClient());
+		
+		clientService.createClient(naturalPersonManager);
+
+	}
+	
+	@Test(expected = PropertyValueException.class)
+	public void ifDateFieldIsNotOKThenShouldReturnException(){
+		
+		naturalPersonManager.setClient(ClientMother.getWrongDateOfNaturalPersonClient());
+		
+		clientService.createClient(naturalPersonManager);
+
+	}
+		
 }

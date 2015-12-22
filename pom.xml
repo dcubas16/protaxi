@@ -121,6 +121,13 @@
 			<version>${mysql-connector-java-version}</version>
 		</dependency>
 
+		<!-- JSON library -->
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

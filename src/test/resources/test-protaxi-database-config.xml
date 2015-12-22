@@ -14,6 +14,7 @@
 
 		<mapping class="org.protaxi.entities.Client" />
 		<mapping class="org.protaxi.entities.NaturalPerson" />
+		<mapping class="org.protaxi.entities.LegalEntity" />
 <!-- 		<mapping class="org.greypowergaeservices.entities.Material" /> -->
 <!-- 		<mapping class="org.greypowergaeservices.entities.Size" /> -->
 <!-- 		<mapping class="org.greypowergaeservices.entities.Product" /> -->
