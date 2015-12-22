@@ -1,5 +1,7 @@
 package org.protaxi.entities;
 
+import java.util.Date;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -11,7 +13,9 @@ import javax.persistence.Table;
 @AttributeOverrides({
 	@AttributeOverride(name="identityDocTypeId", column=@Column(name="IDENTITY_DOC_TYPE_ID")),
 	@AttributeOverride(name="identityDoc", column=@Column(name="IDENTITY_DOC")),
-	@AttributeOverride(name="email", column=@Column(name="EMAIL"))})
+	@AttributeOverride(name="email", column=@Column(name="EMAIL")),
+	@AttributeOverride(name="nickName", column=@Column(name="NICKNAME")),
+	@AttributeOverride(name="photo", column=@Column(name="PHOTO"))})
 public class NaturalPerson  extends Client{
 
 	private static final long serialVersionUID = -3861872839322143547L;
@@ -22,33 +26,61 @@ public class NaturalPerson  extends Client{
 	@Column(name="SECOND_LAST_NAME")
 	private String secondLastName;
 	
-	@Column(name="NAME")
+	@Column(name="NAME", nullable = false)
 	private String name;
 	
-	@Column(name="PHONE_NUMBER")
+	@Column(name="PHONE_NUMBER", nullable = false)
 	private String phoneNumber;
 	
-	@Column(name="CELLPHONE_NUMBER")
+	@Column(name="CELLPHONE_NUMBER", nullable = false)
 	private String cellphoneNumber;
 	
 	@Column(name="HOME_ADDRESS")
 	private String homeAddress;
 	
-	public NaturalPerson(int id, int identityDocTypeId, String identityDoc) {
-		super(id, identityDocTypeId, identityDoc);
-		// TODO Auto-generated constructor stub
+	@Column(name="BIRTHDATE")
+	private Date birthDate;
+	
+	public NaturalPerson() {
+		super();
 	}
 
-	public NaturalPerson(int identityDocTypeId, String identityDoc,
-			String email, String lastName, String secondLastName, String name,
-			String phoneNumber, String cellphoneNumber, String homeAddress) {
-		super(identityDocTypeId, identityDoc, email);
+	public NaturalPerson(int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
+			String lastName, String secondLastName, String name, String phoneNumber, String cellphoneNumber,
+			String homeAddress, Date birthDate) {
+		super(identityDocTypeId, identityDoc, email, nickName, photo);
 		this.lastName = lastName;
 		this.secondLastName = secondLastName;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.cellphoneNumber = cellphoneNumber;
 		this.homeAddress = homeAddress;
+		this.birthDate = birthDate;
+	}
+
+	public NaturalPerson(int id, int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
+			String lastName, String secondLastName, String name, String phoneNumber, String cellphoneNumber,
+			String homeAddress, Date birthDate) {
+		super(id, identityDocTypeId, identityDoc, email, nickName, photo);
+		this.lastName = lastName;
+		this.secondLastName = secondLastName;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.cellphoneNumber = cellphoneNumber;
+		this.homeAddress = homeAddress;
+		this.birthDate = birthDate;
+	}
+
+	public NaturalPerson(String lastName, String secondLastName, String name, String phoneNumber,
+			String cellphoneNumber, String homeAddress, Date birthDate) {
+		super();
+		this.lastName = lastName;
+		this.secondLastName = secondLastName;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.cellphoneNumber = cellphoneNumber;
+		this.homeAddress = homeAddress;
+		this.birthDate = birthDate;
 	}
 
 	public String getLastName() {
@@ -97,6 +129,14 @@ public class NaturalPerson  extends Client{
 
 	public void setHomeAddress(String homeAddress) {
 		this.homeAddress = homeAddress;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 	
 }

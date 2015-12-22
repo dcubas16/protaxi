@@ -25,27 +25,42 @@ public abstract class Client implements Serializable {
 	@Column(name="ID")
 	private int id;
 
-	@Column(name = "IDENTITY_DOC_TYPE_ID")
+	@Column(name = "IDENTITY_DOC_TYPE_ID", nullable = false)
 	private int identityDocTypeId;
 
-	@Column(name="IDENTITY_DOC")
+	@Column(name="IDENTITY_DOC", nullable = false)
 	private String identityDoc;
 
-	@Column(name="EMAIL")
+	@Column(name="EMAIL",unique = true, nullable = false)
 	private String email;
 	
-	public Client(int identityDocTypeId, String identityDoc, String email) {
+	@Column(name="NICKNAME")
+	private String nickName;
+	
+	@Column(name="PHOTO")
+	private String photo;
+	
+	public Client() {
+		super();
+	}
+
+	public Client(int identityDocTypeId, String identityDoc, String email, String nickName, String photo) {
 		super();
 		this.identityDocTypeId = identityDocTypeId;
 		this.identityDoc = identityDoc;
 		this.email = email;
+		this.nickName = nickName;
+		this.photo = photo;
 	}
 
-	public Client(int id, int identityDocTypeId, String identityDoc) {
+	public Client(int id, int identityDocTypeId, String identityDoc, String email, String nickName, String photo) {
 		super();
 		this.id = id;
 		this.identityDocTypeId = identityDocTypeId;
 		this.identityDoc = identityDoc;
+		this.email = email;
+		this.nickName = nickName;
+		this.photo = photo;
 	}
 
 	public int getId() {
@@ -78,5 +93,21 @@ public abstract class Client implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 }

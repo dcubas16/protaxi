@@ -33,23 +33,7 @@ public class LegalEntity  extends Client{
 	
 	@Column(name="HOME_ADDRESS")
 	private String homeAddress;
-	
-	public LegalEntity(int id, int identityDocTypeId, String identityDoc) {
-		super(id, identityDocTypeId, identityDoc);
-		// TODO Auto-generated constructor stub
-	}
 
-	public LegalEntity(int identityDocTypeId, String identityDoc,
-			String email, String lastName, String secondLastName, String name,
-			String phoneNumber, String cellphoneNumber, String homeAddress) {
-		super(identityDocTypeId, identityDoc, email);
-		this.lastName = lastName;
-		this.secondLastName = secondLastName;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.cellphoneNumber = cellphoneNumber;
-		this.homeAddress = homeAddress;
-	}
 
 	public String getLastName() {
 		return lastName;
