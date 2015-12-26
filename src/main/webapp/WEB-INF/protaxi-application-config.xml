@@ -1,35 +1,43 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-	    http://www.springframework.org/schema/context 
-	    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:component-scan base-package="org.protaxi.**.*" />
 
-
-	<!-- Scans the classpath for annotated components that will be auto-registered 
-		as Spring beans. For example @Controller and @Service. Make sure to set the 
-		correct base-package -->
-	<context:component-scan base-package="org.protaxi.*" />
-	<!-- <sws:annotation-driven /> -->
+	<tx:annotation-driven />
 
 	<!-- Activates various annotations to be detected in bean classes -->
 	<context:annotation-config />
-	<context:property-placeholder
-		properties-ref="deployProperties" />
+<!-- 	<context:property-placeholder -->
+<!-- 		properties-ref="deployProperties" /> -->
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/testprotaxi?createDatabaseIfNotExist=true" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:test-protaxi-database-config.xml" />
+	</bean>
 
 
-	<!-- Configures the annotation-driven Spring MVC Controller programming 
-		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
-	<!-- Configures Hibernate -->
-	<!-- <bean id="deployProperties" -->
-	<!-- class="org.springframework.beans.factory.config.PropertiesFactoryBean" -->
-	<!-- p:location="WEB-INF/dataBaseConnection.properties" /> -->
-	<!-- <import -->
-	<!-- resource="classpath:org/greypowerservices/greypowerservices-hibernate-context-config.xml" 
-		/> -->
-
-	<!-- <import resource="greypowerservices-services-config.xml"/> -->
 </beans>
