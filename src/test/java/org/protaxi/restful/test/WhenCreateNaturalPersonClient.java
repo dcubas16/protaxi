@@ -1,31 +1,50 @@
 package org.protaxi.restful.test;
 
-import org.junit.Test;
-import org.protaxi.restful.ClientControllerRestFul;
-import org.protaxi.test.util.TestConfigurator;
-import org.springframework.test.web.servlet.MockMvc;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+//import static org.springframework.test.web.server.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import javax.annotation.Resource;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.protaxi.test.util.IntegrationTestConfigurator;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-public class WhenCreateNaturalPersonClient extends TestConfigurator{
+public class WhenCreateNaturalPersonClient extends
+		IntegrationTestConfigurator {
 
-	private final MockMvc mockMvc = standaloneSetup(
-			new ClientControllerRestFul()).build();
+	@Resource
+	private WebApplicationContext webApplicationContext;
 
+	private MockMvc mockMvc;
+
+	@Before
+	public void setUp() {
+		mockMvc = MockMvcBuilders
+				.webAppContextSetup(webApplicationContext).build();
+	}
+
+	@Test
+	public void thenShouldReturnOK() throws Exception {
+
+		mockMvc.perform(get("/client/createNaturalPerson/").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
+	
 	@Test
 	public void thenShouldSaveNaturalPerson() throws Exception {
 
-		mockMvc.perform(get("/createNaturalPerson"))
-				.andExpect(status().isOk())	
-				.andExpect(
-						content().contentType(MediaType.APPLICATION_JSON_VALUE)
-								)
-				.andExpect(jsonPath("$.street").value("1"));
+		mockMvc.perform(get("/client/createNaturalPerson/").accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
+				.andExpect(status().isOk())
+//				 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().string("1"));
+//		System.out.println("Hola");
+		
 	}
 }
