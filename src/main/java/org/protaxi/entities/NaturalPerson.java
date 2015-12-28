@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.protaxi.dto.NaturalPersonDTO;
+
 @Entity
 @Table(name = "NATURAL_PERSON")
 @AttributeOverrides({
@@ -137,6 +139,24 @@ public class NaturalPerson  extends Client{
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public Client getNaturalPerson(NaturalPersonDTO naturalPersonDTO) {
+		this.setId(naturalPersonDTO.getId());
+		this.setIdentityDocTypeId(naturalPersonDTO.getIdentityDocTypeId());
+		this.setIdentityDoc(naturalPersonDTO.getIdentityDoc());
+		this.setEmail(naturalPersonDTO.getEmail());
+		this.setNickName(naturalPersonDTO.getNickName());
+		this.setPhoto(naturalPersonDTO.getPhoto());
+		this.lastName = naturalPersonDTO.getLastName();
+		this.secondLastName = naturalPersonDTO.getLastName();
+		this.name = naturalPersonDTO.getName();
+		this.phoneNumber = naturalPersonDTO.getPhoneNumber();
+		this.cellphoneNumber = naturalPersonDTO.getCellphoneNumber();
+		this.homeAddress = naturalPersonDTO.getHomeAddress();
+		this.birthDate = naturalPersonDTO.getBirthDate();
+		
+		return this;
 	}
 	
 }

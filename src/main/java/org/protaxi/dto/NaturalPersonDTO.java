@@ -1,6 +1,9 @@
 package org.protaxi.dto;
 
+import java.util.Date;
+
 public class NaturalPersonDTO {
+	
 	private int id;
 
 	private int identityDocTypeId;
@@ -13,13 +16,19 @@ public class NaturalPersonDTO {
 	
 	private String photo;
 	
-	private String businessName;
+	private String lastName;
 	
-	private String contactPhoneNumber;
+	private String secondLastName;
 	
-	private String contactCellphoneNumber;
+	private String name;
 	
-	private String address;
+	private String phoneNumber;
+	
+	private String cellphoneNumber;
+	
+	private String homeAddress;
+	
+	private Date birthDate;
 
 	public int getId() {
 		return id;
@@ -69,35 +78,59 @@ public class NaturalPersonDTO {
 		this.photo = photo;
 	}
 
-	public String getBusinessName() {
-		return businessName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setBusinessName(String businessName) {
-		this.businessName = businessName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getContactPhoneNumber() {
-		return contactPhoneNumber;
+	public String getSecondLastName() {
+		return secondLastName;
 	}
 
-	public void setContactPhoneNumber(String contactPhoneNumber) {
-		this.contactPhoneNumber = contactPhoneNumber;
+	public void setSecondLastName(String secondLastName) {
+		this.secondLastName = secondLastName;
 	}
 
-	public String getContactCellphoneNumber() {
-		return contactCellphoneNumber;
+	public String getName() {
+		return name;
 	}
 
-	public void setContactCellphoneNumber(String contactCellphoneNumber) {
-		this.contactCellphoneNumber = contactCellphoneNumber;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getCellphoneNumber() {
+		return cellphoneNumber;
+	}
+
+	public void setCellphoneNumber(String cellphoneNumber) {
+		this.cellphoneNumber = cellphoneNumber;
+	}
+
+	public String getHomeAddress() {
+		return homeAddress;
+	}
+
+	public void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 }
