@@ -2,6 +2,7 @@ package org.protaxi.test.util;
 
 import java.util.Date;
 
+import org.protaxi.dto.NaturalPersonDTO;
 import org.protaxi.entities.Client;
 import org.protaxi.entities.LegalEntity;
 import org.protaxi.entities.NaturalPerson;
@@ -38,6 +39,13 @@ public class ClientMother {
 		return new LegalEntity(1, null, null, "nickName_1",
 				"photo_1", "businessName_1", "contactPhoneNumber_1",
 				"contactCellphoneNumber_1", "address_1");
+	}
+	
+	public static NaturalPersonDTO getNaturalPersonDto() {
+		NaturalPersonDTO naturalPersonDTO = new NaturalPersonDTO();
+		naturalPersonDTO.setIdentityDoc("1");
+		naturalPersonDTO.setIdentityDocTypeId(1);
+		return naturalPersonDTO;
 	}
 
 }

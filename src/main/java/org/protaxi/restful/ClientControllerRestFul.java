@@ -1,10 +1,12 @@
 package org.protaxi.restful;
 
 import org.protaxi.business.ClientFactory;
+import org.protaxi.dto.NaturalPersonDTO;
 import org.protaxi.services.ClientService;
 import org.protaxi.test.util.ClientMother;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +22,8 @@ public class ClientControllerRestFul {
 	@Qualifier("naturalPersonManager")
 	ClientFactory naturalPersonManager;
 
-	@RequestMapping(value = "/createNaturalPerson", method = RequestMethod.GET)
-	 public String createNaturalPerson() {
+	@RequestMapping(value = "/createNaturalPerson", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public String createNaturalPerson(@RequestBody(required = true) NaturalPersonDTO naturalPersonDTO) {
 
 		naturalPersonManager.setClient(ClientMother.getNaturalPersonClient());
 

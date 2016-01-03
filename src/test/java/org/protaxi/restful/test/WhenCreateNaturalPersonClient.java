@@ -1,43 +1,57 @@
 package org.protaxi.restful.test;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.nio.charset.Charset;
+
 import javax.annotation.Resource;
 
-//import javax.annotation.Resource;
 import org.junit.Before;
 import org.junit.Test;
+import org.protaxi.test.util.ClientMother;
 import org.protaxi.test.util.IntegrationTestConfigurator;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-public class WhenCreateNaturalPersonClient extends
-		IntegrationTestConfigurator {
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+
+public class WhenCreateNaturalPersonClient extends IntegrationTestConfigurator {
 
 	@Resource
 	private WebApplicationContext webApplicationContext;
 
 	private MockMvc mockMvc;
+	
+	ObjectMapper mapper = new ObjectMapper();
+	
+	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+
 
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders
-				.webAppContextSetup(webApplicationContext).build();
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
-	
+
 	@Test
 	public void shouldReturnHttpCode200OnGet() throws Exception {
-		mockMvc.perform(get("/client/createNaturalPerson")).andExpect(status().isOk());
+		mockMvc.perform(post("/client/createNaturalPerson")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void thenShouldSaveNaturalPerson() throws Exception {
 
-		mockMvc.perform(get("/client/createNaturalPerson"))
+		mockMvc.perform(post("/client/createNaturalPerson").contentType(APPLICATION_JSON_UTF8)
+					.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))
+//				.requestAttr("naturalPersonDTO", mapper.writeValueAsBytes(ClientMother.getNaturalPersonDto()))
+//				.flashAttr("naturalPersonDTO", mapper.writeValueAsBytes(ClientMother.getNaturalPersonDto()))
+				)
 				.andExpect(status().isOk())
+				
 				.andExpect(content().string("1"));
 	}
 }
