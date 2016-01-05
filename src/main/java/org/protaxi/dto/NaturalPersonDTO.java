@@ -36,24 +36,6 @@ public class NaturalPersonDTO implements Serializable{
 	
 	private Date birthDate;
 
-//	public NaturalPersonDTO(int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
-//			String lastName, String secondLastName, String name, String phoneNumber, String cellphoneNumber,
-//			String homeAddress, Date birthDate) {
-//		super();
-//		this.identityDocTypeId = identityDocTypeId;
-//		this.identityDoc = identityDoc;
-//		this.email = email;
-//		this.nickName = nickName;
-//		this.photo = photo;
-//		this.lastName = lastName;
-//		this.secondLastName = secondLastName;
-//		this.name = name;
-//		this.phoneNumber = phoneNumber;
-//		this.cellphoneNumber = cellphoneNumber;
-//		this.homeAddress = homeAddress;
-//		this.birthDate = birthDate;
-//	}
-
 	public int getId() {
 		return id;
 	}

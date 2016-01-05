@@ -28,14 +28,12 @@ public class NaturalPersonManager implements ClientFactory {
 
 	@Override
 	public boolean updateClient() {
-		// TODO Auto-generated method stub
-		return false;
+		return clientDAO.updateClient(this.client);
 	}
 
 	@Override
 	public boolean deleteClient() {
-		// TODO Auto-generated method stub
-		return false;
+		return clientDAO.deleteClient(this.client);
 	}
 
 	@Override

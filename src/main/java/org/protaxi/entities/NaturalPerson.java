@@ -40,7 +40,7 @@ public class NaturalPerson  extends Client{
 	@Column(name="HOME_ADDRESS")
 	private String homeAddress;
 	
-	@Column(name="BIRTHDATE", nullable = false)
+	@Column(name="BIRTHDATE", nullable = true)
 	private Date birthDate;
 	
 	public NaturalPerson() {

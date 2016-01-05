@@ -40,13 +40,4 @@ public class WhenCreateNaturalPersonClient extends TestConfigurator {
 
 	}
 	
-	@Test(expected = PropertyValueException.class)
-	public void ifDateFieldIsNotOKThenShouldReturnException(){
-		
-		naturalPersonManager.setClient(ClientMother.getWrongDateOfNaturalPersonClient());
-		
-		clientService.createClient(naturalPersonManager);
-
-	}
-		
 }

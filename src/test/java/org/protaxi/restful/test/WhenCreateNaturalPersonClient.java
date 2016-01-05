@@ -19,17 +19,14 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 public class WhenCreateNaturalPersonClient extends IntegrationTestConfigurator {
 
 	@Resource
 	private WebApplicationContext webApplicationContext;
 
 	private MockMvc mockMvc;
-	
+
 	ObjectMapper mapper = new ObjectMapper();
-	
-	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
 
 
 	@Before
@@ -38,20 +35,16 @@ public class WhenCreateNaturalPersonClient extends IntegrationTestConfigurator {
 	}
 
 	@Test
-	public void shouldReturnHttpCode200OnGet() throws Exception {
-		mockMvc.perform(post("/client/createNaturalPerson")).andExpect(status().isOk());
+	public void thenShouldReturnHttpCode200OnGet() throws Exception {
+		mockMvc.perform(post("/client/createNaturalPerson").contentType(APPLICATION_JSON_UTF8)
+				.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))).andExpect(status().isOk());
 	}
 
 	@Test
 	public void thenShouldSaveNaturalPerson() throws Exception {
 
 		mockMvc.perform(post("/client/createNaturalPerson").contentType(APPLICATION_JSON_UTF8)
-					.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))
-//				.requestAttr("naturalPersonDTO", mapper.writeValueAsBytes(ClientMother.getNaturalPersonDto()))
-//				.flashAttr("naturalPersonDTO", mapper.writeValueAsBytes(ClientMother.getNaturalPersonDto()))
-				)
-				.andExpect(status().isOk())
-				
-				.andExpect(content().string("1"));
+				.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))).andExpect(status().isOk())
+				.andExpect(content().string("2"));
 	}
 }

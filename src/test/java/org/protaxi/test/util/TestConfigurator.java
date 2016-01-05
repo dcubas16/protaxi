@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:test-protaxi-application-config.xml")
-@TransactionConfiguration(defaultRollback = true, transactionManager = "transactionManager")
+@TransactionConfiguration(defaultRollback = false, transactionManager = "transactionManager")
 @Transactional
 public class TestConfigurator {
 	

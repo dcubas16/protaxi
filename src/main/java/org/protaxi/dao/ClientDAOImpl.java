@@ -16,8 +16,21 @@ public class ClientDAOImpl  implements ClientDAO  {
 	@Override
 	@Transactional
 	public int createClient(Client client) throws HibernateException {
-		sessionFactory.getCurrentSession().save(client);
+		sessionFactory.getCurrentSession().saveOrUpdate(client);
 		return client.getId();
+	}
+
+	@Override
+	@Transactional
+	public boolean updateClient(Client client) throws HibernateException {
+		sessionFactory.getCurrentSession().saveOrUpdate(client);
+		return true;
+	}
+
+	@Override
+	public boolean deleteClient(Client client) throws HibernateException  {
+		sessionFactory.getCurrentSession().delete(client);
+		return true;
 	}
 
 }
