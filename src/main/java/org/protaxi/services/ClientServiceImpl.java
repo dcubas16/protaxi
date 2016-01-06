@@ -23,17 +23,15 @@ public class ClientServiceImpl implements ClientService {
 	public boolean deleteClient(ClientFactory clientFactory) {
 		return clientFactory.deleteClient();
 	}
-	
+
 	@Override
-	public Client getClient(ClientFactory clientFactory) {
-		// TODO Auto-generated method stub
-		return null;
+	public Client getClientById(ClientFactory clientFactory) {
+		return clientFactory.getClientById();
 	}
 
 	@Override
 	public List<Client> getClients(ClientFactory clientFactory) {
-		// TODO Auto-generated method stub
-		return null;
+		return clientFactory.getClients();
 	}
 
 }

@@ -1,5 +1,7 @@
 package org.protaxi.business;
 
+import java.util.List;
+
 import org.protaxi.dao.ClientDAO;
 import org.protaxi.entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,16 @@ public class NaturalPersonManager implements ClientFactory {
 	public void setClient(Client client) {
 		this.client = client;
 		
+	}
+
+	@Override
+	public Client getClientById() {
+		return clientDAO.getClientById(this.client.getId());
+	}
+
+	@Override
+	public List<Client> getClients() {
+		return clientDAO.getClients(this.client);
 	}
 
 }

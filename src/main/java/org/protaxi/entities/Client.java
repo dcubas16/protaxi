@@ -23,22 +23,22 @@ public abstract class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO )
 	@Column(name="ID")
-	private int id;
+	public int id;
 
 	@Column(name = "IDENTITY_DOC_TYPE_ID", nullable = false)
-	private int identityDocTypeId;
+	public int identityDocTypeId;
 
 	@Column(name="IDENTITY_DOC", nullable = false)
-	private String identityDoc;
+	public String identityDoc;
 
 	@Column(name="EMAIL",unique = true, nullable = false)
-	private String email;
+	public String email;
 	
 	@Column(name="NICKNAME")
-	private String nickName;
+	public String nickName;
 	
 	@Column(name="PHOTO")
-	private String photo;
+	public String photo;
 	
 	public Client() {
 		super();

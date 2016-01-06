@@ -12,37 +12,36 @@ import org.protaxi.dto.NaturalPersonDTO;
 
 @Entity
 @Table(name = "NATURAL_PERSON")
-@AttributeOverrides({
-	@AttributeOverride(name="identityDocTypeId", column=@Column(name="IDENTITY_DOC_TYPE_ID")),
-	@AttributeOverride(name="identityDoc", column=@Column(name="IDENTITY_DOC")),
-	@AttributeOverride(name="email", column=@Column(name="EMAIL")),
-	@AttributeOverride(name="nickName", column=@Column(name="NICKNAME")),
-	@AttributeOverride(name="photo", column=@Column(name="PHOTO"))})
-public class NaturalPerson  extends Client{
+@AttributeOverrides({ @AttributeOverride(name = "identityDocTypeId", column = @Column(name = "IDENTITY_DOC_TYPE_ID") ),
+		@AttributeOverride(name = "identityDoc", column = @Column(name = "IDENTITY_DOC") ),
+		@AttributeOverride(name = "email", column = @Column(name = "EMAIL") ),
+		@AttributeOverride(name = "nickName", column = @Column(name = "NICKNAME") ),
+		@AttributeOverride(name = "photo", column = @Column(name = "PHOTO") ) })
+public class NaturalPerson extends Client {
 
 	private static final long serialVersionUID = -3861872839322143547L;
 
-	@Column(name="LAST_NAME")
+	@Column(name = "LAST_NAME")
 	private String lastName;
-	
-	@Column(name="SECOND_LAST_NAME")
+
+	@Column(name = "SECOND_LAST_NAME")
 	private String secondLastName;
-	
-	@Column(name="NAME", nullable = false)
+
+	@Column(name = "NAME", nullable = false)
 	private String name;
-	
-	@Column(name="PHONE_NUMBER", nullable = false)
+
+	@Column(name = "PHONE_NUMBER", nullable = false)
 	private String phoneNumber;
-	
-	@Column(name="CELLPHONE_NUMBER", nullable = false)
+
+	@Column(name = "CELLPHONE_NUMBER", nullable = false)
 	private String cellphoneNumber;
-	
-	@Column(name="HOME_ADDRESS")
+
+	@Column(name = "HOME_ADDRESS")
 	private String homeAddress;
-	
-	@Column(name="BIRTHDATE", nullable = true)
+
+	@Column(name = "BIRTHDATE", nullable = true)
 	private Date birthDate;
-	
+
 	public NaturalPerson() {
 		super();
 	}
@@ -155,8 +154,23 @@ public class NaturalPerson  extends Client{
 		this.cellphoneNumber = naturalPersonDTO.getCellphoneNumber();
 		this.homeAddress = naturalPersonDTO.getHomeAddress();
 		this.birthDate = naturalPersonDTO.getBirthDate();
-		
+
 		return this;
 	}
-	
+
+	public boolean equals(NaturalPerson naturalPerson) {
+		return this.getId() == naturalPerson.getId()
+				&& this.getIdentityDocTypeId() == naturalPerson.getIdentityDocTypeId()
+				&& this.getIdentityDoc().equals(naturalPerson.getIdentityDoc())
+				&& this.getEmail().equals(naturalPerson.getEmail())
+				&& this.getNickName().equals(naturalPerson.getNickName())
+				&& this.getPhoto().equals(naturalPerson.getPhoto())
+				&& this.getLastName().equals(naturalPerson.getLastName())
+				&& this.getSecondLastName().equals(naturalPerson.getSecondLastName())
+				&& this.getName().equals(naturalPerson.getName())
+				&& this.getPhoneNumber().equals(naturalPerson.getPhoneNumber())
+				&& this.getCellphoneNumber().equals(naturalPerson.getCellphoneNumber())
+				&& this.getHomeAddress().equals(naturalPerson.getHomeAddress());
+	}
+
 }

@@ -10,19 +10,34 @@
 		<welcome-file>index.html</welcome-file> </welcome-file-list> -->
 	<display-name>protaxi</display-name>
 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+	  		/WEB-INF/protaxi-application-config.xml
+	  	</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 	<servlet>
-		<servlet-name>rest</servlet-name>
+		<servlet-name>protaxi</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/protaxi-servlet-config.xml</param-value>
+		</init-param>
 	</servlet>
+
 	<servlet-mapping>
-		<servlet-name>rest</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<servlet-name>protaxi</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
 </web-app>
 

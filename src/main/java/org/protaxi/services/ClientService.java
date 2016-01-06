@@ -10,7 +10,7 @@ public interface ClientService {
 	public int createClient(ClientFactory clientFactory);
 	public boolean updateClient(ClientFactory clientFactory);
 	public boolean deleteClient(ClientFactory clientFactory);
-	public Client getClient(ClientFactory clientFactory);
 	public List<Client> getClients(ClientFactory clientFactory);
+	public Client getClientById(ClientFactory clientFactory);
 	
 }

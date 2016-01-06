@@ -1,5 +1,7 @@
 package org.protaxi.business;
 
+import java.util.List;
+
 import org.protaxi.dao.ClientDAO;
 import org.protaxi.entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,18 @@ public class LegalEntityManager implements ClientFactory {
 
 	public Client getClient() {
 		return client;
+	}
+
+	@Override
+	public Client getClientById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Client> getClients() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
