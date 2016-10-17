@@ -1,14 +1,12 @@
 package org.protaxi.restful.test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import javax.annotation.Resource;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.protaxi.test.util.ClientMother;
 import org.protaxi.test.util.IntegrationTestConfigurator;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -16,7 +14,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class WhenCreateNaturalPersonClient extends IntegrationTestConfigurator {
+public class WhenLoginNaturalPerson extends IntegrationTestConfigurator {
 
 	@Resource
 	private WebApplicationContext webApplicationContext;
@@ -33,14 +31,8 @@ public class WhenCreateNaturalPersonClient extends IntegrationTestConfigurator {
 
 	@Test
 	public void thenShouldReturnHttpCode200OnGet() throws Exception {
-		mockMvc.perform(post("/client/createNaturalPerson").contentType(APPLICATION_JSON_UTF8)
-				.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))).andExpect(status().isOk());
+		mockMvc.perform(post("/client/login").contentType(APPLICATION_JSON_UTF8)
+				.content("{\"email\":\"email_00000\",\"password\":\"password0\"}")).andExpect(status().isOk());
 	}
 
-	@Test
-	public void thenShouldSaveNaturalPerson() throws Exception {
-		System.out.println(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()));
-		mockMvc.perform(put("/client/createNaturalPerson").contentType(APPLICATION_JSON_UTF8)
-				.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))).andExpect(status().isOk());
-	}
 }

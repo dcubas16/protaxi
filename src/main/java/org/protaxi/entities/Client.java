@@ -25,10 +25,10 @@ public abstract class Client implements Serializable {
 	@Column(name="ID")
 	public int id;
 
-	@Column(name = "IDENTITY_DOC_TYPE_ID", nullable = false)
+	@Column(name = "IDENTITY_DOC_TYPE_ID", nullable = true)
 	public int identityDocTypeId;
 
-	@Column(name="IDENTITY_DOC", nullable = false)
+	@Column(name="IDENTITY_DOC", nullable = true)
 	public String identityDoc;
 
 	@Column(name="EMAIL",unique = true, nullable = false)
@@ -37,23 +37,24 @@ public abstract class Client implements Serializable {
 	@Column(name="NICKNAME")
 	public String nickName;
 	
-	@Column(name="PHOTO")
+	@Column(name="PHOTO", nullable = true)
 	public String photo;
+	
+	@Column(name="PASSWORD",nullable = false)
+	public String password; 
+	
+	@Column(name="COUNTRY_ID",nullable = false)
+	public String countryId;
+	
+	@Column(name="PHONE_NUMBER ",nullable = false)
+	public String phoneNumber;
 	
 	public Client() {
 		super();
 	}
 
-	public Client(int identityDocTypeId, String identityDoc, String email, String nickName, String photo) {
-		super();
-		this.identityDocTypeId = identityDocTypeId;
-		this.identityDoc = identityDoc;
-		this.email = email;
-		this.nickName = nickName;
-		this.photo = photo;
-	}
-
-	public Client(int id, int identityDocTypeId, String identityDoc, String email, String nickName, String photo) {
+	public Client(int id, int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
+			String password, String countryId, String phoneNumber) {
 		super();
 		this.id = id;
 		this.identityDocTypeId = identityDocTypeId;
@@ -61,6 +62,9 @@ public abstract class Client implements Serializable {
 		this.email = email;
 		this.nickName = nickName;
 		this.photo = photo;
+		this.password = password;
+		this.countryId = countryId;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public int getId() {
@@ -109,5 +113,29 @@ public abstract class Client implements Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(String countryId) {
+		this.countryId = countryId;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 }

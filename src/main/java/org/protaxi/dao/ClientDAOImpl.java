@@ -3,6 +3,7 @@ package org.protaxi.dao;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.protaxi.entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,8 @@ public class ClientDAOImpl  implements ClientDAO  {
 
 	@Override
 	public Client getClientById(int id) throws HibernateException  {
-		return (Client) sessionFactory.getCurrentSession().get(Client.class, id);
+		Client client = (Client) sessionFactory.getCurrentSession().get(Client.class, id);
+		return client;
 	}
 	
 	@Override
@@ -48,5 +50,29 @@ public class ClientDAOImpl  implements ClientDAO  {
 //		query.setParameter("secondLastName", naturalPerson.getSecondLastName());
 		return  null;
 	}
+
+	@Override
+	public Client getClientByEmail(String email) {
+		Query query= sessionFactory.getCurrentSession().
+		createQuery("from Client where email=:email");
+		query.setParameter("email", email);
+		
+		Client client = (Client) query.uniqueResult();
+		
+		return client;
+	}
+
+	@Override
+	public Client getClientByEmailAndPassword(String email, String password) {
+		Query query= sessionFactory.getCurrentSession().
+		createQuery("from Client where email=:email and password=:password");
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		
+		Client client = (Client) query.uniqueResult();
+		
+		return client;
+	}
+
 
 }

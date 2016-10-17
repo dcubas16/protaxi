@@ -4,6 +4,7 @@ package org.protaxi.service.test;
 import static org.junit.Assert.assertNotNull;
 
 import org.hibernate.PropertyValueException;
+import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 import org.protaxi.business.ClientFactory;
 import org.protaxi.services.ClientService;
@@ -39,5 +40,18 @@ public class WhenCreateNaturalPersonClient extends TestConfigurator {
 		clientService.createClient(naturalPersonManager);
 
 	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void ifDuplicatedNaturalPersonThenShouldReturnException(){
+		
+		naturalPersonManager.setClient(ClientMother.getExistingNaturalPersonClient());
+		
+		clientService.createClient(naturalPersonManager);
+		
+		assertNotNull(null);
+
+	}
+	
+		
 	
 }

@@ -12,31 +12,36 @@ import org.protaxi.dto.NaturalPersonDTO;
 
 @Entity
 @Table(name = "NATURAL_PERSON")
-@AttributeOverrides({ @AttributeOverride(name = "identityDocTypeId", column = @Column(name = "IDENTITY_DOC_TYPE_ID") ),
+@AttributeOverrides({ 
+		@AttributeOverride(name = "identityDocTypeId", column = @Column(name = "IDENTITY_DOC_TYPE_ID") ),
 		@AttributeOverride(name = "identityDoc", column = @Column(name = "IDENTITY_DOC") ),
 		@AttributeOverride(name = "email", column = @Column(name = "EMAIL") ),
 		@AttributeOverride(name = "nickName", column = @Column(name = "NICKNAME") ),
-		@AttributeOverride(name = "photo", column = @Column(name = "PHOTO") ) })
+		@AttributeOverride(name = "photo", column = @Column(name = "PHOTO") ), 
+		@AttributeOverride(name = "password", column = @Column(name = "PASSWORD") ), 
+		@AttributeOverride(name = "country_id", column = @Column(name = "COUNTRY_ID") ), 
+		@AttributeOverride(name = "phone_number", column = @Column(name = "PHONE_NUMBER") )
+})
 public class NaturalPerson extends Client {
 
 	private static final long serialVersionUID = -3861872839322143547L;
 
-	@Column(name = "LAST_NAME")
+	@Column(name = "LAST_NAME", nullable = true)
 	private String lastName;
 
-	@Column(name = "SECOND_LAST_NAME")
+	@Column(name = "SECOND_LAST_NAME", nullable = true)
 	private String secondLastName;
 
-	@Column(name = "NAME", nullable = false)
+	@Column(name = "NAME", nullable = true)
 	private String name;
 
-	@Column(name = "PHONE_NUMBER", nullable = false)
+	@Column(name = "PHONE_NUMBER", nullable = true)
 	private String phoneNumber;
 
-	@Column(name = "CELLPHONE_NUMBER", nullable = false)
+	@Column(name = "CELLPHONE_NUMBER", nullable = true)
 	private String cellphoneNumber;
 
-	@Column(name = "HOME_ADDRESS")
+	@Column(name = "HOME_ADDRESS", nullable = true)
 	private String homeAddress;
 
 	@Column(name = "BIRTHDATE", nullable = true)
@@ -45,33 +50,7 @@ public class NaturalPerson extends Client {
 	public NaturalPerson() {
 		super();
 	}
-
-	public NaturalPerson(int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
-			String lastName, String secondLastName, String name, String phoneNumber, String cellphoneNumber,
-			String homeAddress, Date birthDate) {
-		super(identityDocTypeId, identityDoc, email, nickName, photo);
-		this.lastName = lastName;
-		this.secondLastName = secondLastName;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.cellphoneNumber = cellphoneNumber;
-		this.homeAddress = homeAddress;
-		this.birthDate = birthDate;
-	}
-
-	public NaturalPerson(int id, int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
-			String lastName, String secondLastName, String name, String phoneNumber, String cellphoneNumber,
-			String homeAddress, Date birthDate) {
-		super(id, identityDocTypeId, identityDoc, email, nickName, photo);
-		this.lastName = lastName;
-		this.secondLastName = secondLastName;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.cellphoneNumber = cellphoneNumber;
-		this.homeAddress = homeAddress;
-		this.birthDate = birthDate;
-	}
-
+	
 	public NaturalPerson(String lastName, String secondLastName, String name, String phoneNumber,
 			String cellphoneNumber, String homeAddress, Date birthDate) {
 		super();
@@ -79,6 +58,21 @@ public class NaturalPerson extends Client {
 		this.secondLastName = secondLastName;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
+		this.cellphoneNumber = cellphoneNumber;
+		this.homeAddress = homeAddress;
+		this.birthDate = birthDate;
+	}
+
+
+
+	public NaturalPerson(int id, int identityDocTypeId, String identityDoc, String email, String nickName, String photo,
+			String password, String countryId, String phoneNumber, String lastName, String secondLastName, String name,
+			String phoneNumber2, String cellphoneNumber, String homeAddress, Date birthDate) {
+		super(id, identityDocTypeId, identityDoc, email, nickName, photo, password, countryId, phoneNumber);
+		this.lastName = lastName;
+		this.secondLastName = secondLastName;
+		this.name = name;
+		this.phoneNumber = phoneNumber2;
 		this.cellphoneNumber = cellphoneNumber;
 		this.homeAddress = homeAddress;
 		this.birthDate = birthDate;
@@ -153,7 +147,9 @@ public class NaturalPerson extends Client {
 		this.phoneNumber = naturalPersonDTO.getPhoneNumber();
 		this.cellphoneNumber = naturalPersonDTO.getCellphoneNumber();
 		this.homeAddress = naturalPersonDTO.getHomeAddress();
-		this.birthDate = naturalPersonDTO.getBirthDate();
+		this.birthDate =  naturalPersonDTO.getBirthDate();
+		this.countryId = naturalPersonDTO.getCountryId();
+		this.setPassword(naturalPersonDTO.getPassword());
 
 		return this;
 	}

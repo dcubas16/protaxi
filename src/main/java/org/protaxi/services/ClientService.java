@@ -12,5 +12,7 @@ public interface ClientService {
 	public boolean deleteClient(ClientFactory clientFactory);
 	public List<Client> getClients(ClientFactory clientFactory);
 	public Client getClientById(ClientFactory clientFactory);
+	public Client getClientByEmail(ClientFactory naturalPersonManager);
+	public Client getClientByEmailAndPassword(ClientFactory clientFactory);
 	
 }

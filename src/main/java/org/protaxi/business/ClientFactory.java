@@ -14,5 +14,7 @@ public interface ClientFactory {
 	public void setClient(Client client);
 	public Client getClientById();
 	public List<Client> getClients();
+	public Client getClientByEmail();
+	public Client getClientByEmailAndPassword();
 
 }

@@ -54,4 +54,14 @@ public class NaturalPersonManager implements ClientFactory {
 		return clientDAO.getClients(this.client);
 	}
 
+	@Override
+	public Client getClientByEmail() {
+		return clientDAO.getClientByEmail(this.client.getEmail());
+	}
+
+	@Override
+	public Client getClientByEmailAndPassword() {
+		return clientDAO.getClientByEmailAndPassword(this.client.getEmail(), this.client.getPassword());
+	}
+
 }

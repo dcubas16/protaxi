@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.protaxi.dao.ClientDAO;
 import org.protaxi.entities.Client;
+import org.protaxi.entities.NaturalPerson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -57,6 +58,18 @@ public class LegalEntityManager implements ClientFactory {
 
 	@Override
 	public List<Client> getClients() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NaturalPerson getClientByEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Client getClientByEmailAndPassword() {
 		// TODO Auto-generated method stub
 		return null;
 	}

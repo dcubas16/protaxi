@@ -35,6 +35,10 @@ public class NaturalPersonDTO implements Serializable{
 	private String homeAddress;
 	
 	private Date birthDate;
+	
+	private String countryId;
+	
+	private String password;
 
 	public int getId() {
 		return id;
@@ -138,5 +142,21 @@ public class NaturalPersonDTO implements Serializable{
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public String getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(String countryId) {
+		this.countryId = countryId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

@@ -31,7 +31,7 @@ public class WhenGetNaturalPersons extends TestConfigurator {
 
 		NaturalPerson naturalPersonReceived = (NaturalPerson) clientService.getClientById(naturalPersonManager);
 
-		Assert.assertTrue(naturalPersonReceived.equals(naturalPerson)); 	
+		Assert.assertNotNull(naturalPersonReceived); 	
 		
 	}
 
@@ -57,6 +57,32 @@ public class WhenGetNaturalPersons extends TestConfigurator {
 		List<Client> naturalPersons = clientService.getClients(naturalPersonManager);
 
 		Assert.assertNotNull(naturalPersons);	
+	}
+	
+	@Test
+	public void thenShouldGetNaturalPersonByEmail() {
+
+		NaturalPerson naturalPerson = ClientMother.getFirstNaturalPersonClient();
+		naturalPerson.setEmail("email_00000");
+		naturalPersonManager.setClient(naturalPerson);
+
+		NaturalPerson naturalPersonReceived = (NaturalPerson) clientService.getClientByEmail(naturalPersonManager);
+
+		Assert.assertNotNull(naturalPersonReceived); 	
+		
+	}
+	
+	@Test
+	public void thenShouldGetNaturalPersonByEmailAndPassword() {
+
+		NaturalPerson naturalPerson = ClientMother.getFirstNaturalPersonClient();
+		naturalPerson.setEmail("email_00000");
+		naturalPerson.setPassword("password0");
+		naturalPersonManager.setClient(naturalPerson);
+
+		NaturalPerson naturalPersonReceived = (NaturalPerson) clientService.getClientByEmailAndPassword(naturalPersonManager);
+
+		Assert.assertNotNull(naturalPersonReceived); 	
 		
 	}
 }

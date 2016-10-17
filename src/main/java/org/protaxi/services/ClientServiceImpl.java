@@ -34,4 +34,14 @@ public class ClientServiceImpl implements ClientService {
 		return clientFactory.getClients();
 	}
 
+	@Override
+	public Client getClientByEmail(ClientFactory clientFactory) {
+		return clientFactory.getClientByEmail();
+	}
+
+	@Override
+	public Client getClientByEmailAndPassword(ClientFactory clientFactory) {
+		return clientFactory.getClientByEmailAndPassword();
+	}
+
 }
