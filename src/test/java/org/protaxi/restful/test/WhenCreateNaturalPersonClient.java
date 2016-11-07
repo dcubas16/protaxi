@@ -41,6 +41,7 @@ public class WhenCreateNaturalPersonClient extends IntegrationTestConfigurator {
 	public void thenShouldSaveNaturalPerson() throws Exception {
 		System.out.println(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()));
 		mockMvc.perform(put("/client/createNaturalPerson").contentType(APPLICATION_JSON_UTF8)
-				.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto()))).andExpect(status().isOk());
+				.content(mapper.writeValueAsString(ClientMother.getNaturalPersonDto())))
+				.andExpect(status().isOk());
 	}
 }

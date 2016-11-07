@@ -1,7 +1,6 @@
 package org.protaxi.restful;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Date;
 import org.protaxi.business.ClientFactory;
 import org.protaxi.dto.NaturalPersonDTO;
 import org.protaxi.entities.Client;
@@ -12,9 +11,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
@@ -44,25 +42,27 @@ public class ClientControllerRestFul {
 	
 	@RequestMapping(value = "/callTest", method = RequestMethod.GET, produces = "application/json")
 	public String callTest() {
-		return "Hola Mundo";
+		System.out.println(new Date() + " -- CallTest");
+		return "{\"hola\":\"Hola Mundo\"}";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public String login(@RequestBody(required = true) String objetoLogin) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
+	public String login(@RequestParam(required = true) String email, @RequestParam(required = true) String password) {
 
 		NaturalPerson naturalPerson = new NaturalPerson();
-		JSONObject jsonObj;
 		String jsonInString = "";
 		
 		try {
-			jsonObj = new JSONObject(objetoLogin);
-			naturalPerson.setEmail(jsonObj.getString("email"));
-			naturalPerson.setPassword(jsonObj.getString("password"));
+			System.out.println(new Date() + " -- Login");
+
+			naturalPerson.setEmail(email);
+			naturalPerson.setPassword(password);
 			naturalPersonManager.setClient(naturalPerson);
 			
 			Client client = clientService.getClientByEmailAndPassword(naturalPersonManager);
 
 			jsonInString = mapper.writeValueAsString(client);
+			
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
