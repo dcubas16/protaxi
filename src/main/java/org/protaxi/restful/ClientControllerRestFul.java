@@ -25,21 +25,43 @@ public class ClientControllerRestFul {
 	@Autowired
 	@Qualifier("naturalPersonManager")
 	ClientFactory naturalPersonManager;
-	
+
 	ObjectMapper mapper = new ObjectMapper();
 
-	@RequestMapping(value = "/createNaturalPerson", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public String createNaturalPerson(@RequestBody(required = true) NaturalPersonDTO naturalPersonDTO) {
+	// @RequestMapping(value = "/createNaturalPerson", method =
+	// RequestMethod.POST, consumes = "application/json", produces =
+	// "application/json")
+	// public String createNaturalPerson(@RequestBody(required = true)
+	// NaturalPersonDTO naturalPersonDTO) {
+	//
+	// NaturalPerson naturalPerson = new NaturalPerson();
+	//
+	// naturalPersonManager.setClient(naturalPerson.getNaturalPerson(naturalPersonDTO));
+	//
+	// int uuid = clientService.createClient(naturalPersonManager);
+	//
+	// return Integer.toString(uuid);
+	// }
+
+	@RequestMapping(value = "/createNaturalPerson", method = RequestMethod.POST, produces = "application/json")
+	public String createNaturalPerson(@RequestParam(required = true) String name,
+			@RequestParam(required = true) String country, @RequestParam(required = true) String phoneNumber,
+			@RequestParam(required = true) String email, @RequestParam(required = true) String password) {
 
 		NaturalPerson naturalPerson = new NaturalPerson();
-		
-		naturalPersonManager.setClient(naturalPerson.getNaturalPerson(naturalPersonDTO));
+		naturalPerson.setName(name);
+		naturalPerson.setName(country);
+		naturalPerson.setName(phoneNumber);
+		naturalPerson.setName(email);
+		naturalPerson.setName(password);
+
+		naturalPersonManager.setClient(naturalPerson);
 
 		int uuid = clientService.createClient(naturalPersonManager);
 
 		return Integer.toString(uuid);
 	}
-	
+
 	@RequestMapping(value = "/callTest", method = RequestMethod.GET, produces = "application/json")
 	public String callTest() {
 		System.out.println(new Date() + " -- CallTest");
@@ -51,23 +73,23 @@ public class ClientControllerRestFul {
 
 		NaturalPerson naturalPerson = new NaturalPerson();
 		String jsonInString = "";
-		
+
 		try {
 			System.out.println(new Date() + " -- Login");
 
 			naturalPerson.setEmail(email);
 			naturalPerson.setPassword(password);
 			naturalPersonManager.setClient(naturalPerson);
-			
+
 			Client client = clientService.getClientByEmailAndPassword(naturalPersonManager);
 
 			jsonInString = mapper.writeValueAsString(client);
-			
+
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
-				
+
 		return jsonInString;
 	}
 }
