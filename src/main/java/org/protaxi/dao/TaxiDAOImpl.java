@@ -17,9 +17,9 @@ public class TaxiDAOImpl implements TaxiDAO {
 	@Override
 	public boolean saveRequestTaxi(TaxiCaller taxiCaller)throws HibernateException {
 		
-		sessionFactory.getCurrentSession().save(taxiCaller);
-		
-		return (taxiCaller.getId() > 0);
+		sessionFactory.getCurrentSession().saveOrUpdate(taxiCaller);
+		//sessionFactory.getCurrentSession().saveOrUpdate(client);
+		return (true);
 	}
 
 }

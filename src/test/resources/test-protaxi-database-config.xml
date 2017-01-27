@@ -16,12 +16,6 @@
 		<mapping class="org.protaxi.entities.NaturalPerson" />
 		<mapping class="org.protaxi.entities.LegalEntity" />
 		<mapping class="org.protaxi.entities.TaxiCaller" />
-<!-- 		<mapping class="org.greypowergaeservices.entities.Material" /> -->
-<!-- 		<mapping class="org.greypowergaeservices.entities.Size" /> -->
-<!-- 		<mapping class="org.greypowergaeservices.entities.Product" /> -->
-<!-- 		<mapping class="org.greypowergaeservices.entities.ChemicalProduct" /> -->
-<!-- 		<mapping class="org.greypowergaeservices.entities.JewelProduct" /> -->
-<!-- 		<mapping class="org.greypowergaeservices.entities.Product_Material" /> -->
 		
 	</session-factory>
 </hibernate-configuration>

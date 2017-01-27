@@ -170,6 +170,13 @@
 			<artifactId>amqp-client</artifactId>
 			<version>3.6.0</version>
 		</dependency>
+		
+		<!-- Firebase -->
+		<dependency>
+		  <groupId>com.google.firebase</groupId>
+		  <artifactId>firebase-server-sdk</artifactId>
+		  <version>[3.0.1,)</version>
+		</dependency>
 
 	</dependencies>
 

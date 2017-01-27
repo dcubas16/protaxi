@@ -15,9 +15,9 @@ public class WhenRequesTaxi extends TestConfigurator {
 	@Test
 	public void thenShouldRequestTaxi(){ 
 	
-		boolean esLlamadaExitosa = taxiService.requestTaxi(TaxiMother.getTaxiCaller());
+		boolean isRequestSuccefull= taxiService.requestTaxi(TaxiMother.getTaxiCaller());
 		
-		Assert.isTrue(esLlamadaExitosa);
+		Assert.isTrue(isRequestSuccefull);
 	}
 	
 }
