@@ -5,9 +5,6 @@ import java.util.Date;
 
 public class NaturalPersonDTO implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5434906015424590108L;
 
 	private int id;

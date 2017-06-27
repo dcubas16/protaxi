@@ -16,6 +16,7 @@
 		<mapping class="org.protaxi.entities.NaturalPerson" />
 		<mapping class="org.protaxi.entities.LegalEntity" />
 		<mapping class="org.protaxi.entities.TaxiCaller" />
+		<mapping class="org.protaxi.entities.RequestTaxi" />
 		
 	</session-factory>
 </hibernate-configuration>

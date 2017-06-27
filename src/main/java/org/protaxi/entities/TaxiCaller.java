@@ -19,14 +19,17 @@ public class TaxiCaller{
 	@Column(name="ID")
 	private int id;
 	
-	@Column(name="ID_CLIENT", nullable = false)
-	private int idClient;
+	@Column(name="CLIENT_ID", nullable = false)
+	private int clientId;
 	
 	@Column(name="LATITUDE_ORIGIN", nullable = false)
 	private double latitudeOrigin;
 	
 	@Column(name="LONGITUDE_ORIGIN", nullable = false)
 	private double longitudeOrigin;
+	
+	@Column(name="ORIGIN_REFERENCES", nullable = true)
+	private String originReferences;
 		
 	@Column(name="LATITUDE_DESTINY", nullable = false)
 	private double latitudeDestiny;
@@ -34,82 +37,59 @@ public class TaxiCaller{
 	@Column(name="LONGITUDE_DESTINY", nullable = false)
 	private double longitudeDestiny;
 	
-	@Column(name="ORIGIN_REFERENCES", nullable = true)
-	private String originReferences;
+	@Column(name="PAYMENT_TYPE_ID", nullable = false, length = 36)	
+	private String paymentTypeId;
 	
-	@Column(name="PAYMENT_TYPE", nullable = false, length = 36)	
-	private String paymentType;
+	@Column(name="SERVICE_TYPE_ID", nullable = false, length = 36)	
+	private String serviceTypeId;
 	
-	@Column(name="SERVICE_TYPE", nullable = false, length = 36)	
-	private String serviceType;
+	@Column(name="CATEGORY_ID", nullable = false, length = 36)	
+	private String categoryId;
 	
 	@Column(name="REQUEST_DATE", nullable = true)
 	private Date callerDate;
 	
-	@Column(name="ID_ESTATE", nullable = false, length = 36)
-	private String estado;
+	@Column(name="STATE_ID", nullable = false, length = 36)
+	private String stateId;
 		
 	
-	public TaxiCaller(int id, int idClient, double latitudeOrigin, double longitudeOrigin, double latitudeDestiny,
-			double longitudeDestiny, String originReferences, String paymentType, String serviceType, Date callerDate,
-			String estado) {
+	public TaxiCaller(int id, int clientId, double latitudeOrigin, double longitudeOrigin, String originReferences,
+			double latitudeDestiny, double longitudeDestiny, String paymentTypeId, String serviceTypeId,
+			String categoryId, Date callerDate, String stateId) {
 		super();
 		this.id = id;
-		this.idClient = idClient;
+		this.clientId = clientId;
 		this.latitudeOrigin = latitudeOrigin;
 		this.longitudeOrigin = longitudeOrigin;
+		this.originReferences = originReferences;
 		this.latitudeDestiny = latitudeDestiny;
 		this.longitudeDestiny = longitudeDestiny;
-		this.originReferences = originReferences;
-		this.paymentType = paymentType;
-		this.serviceType = serviceType;
+		this.paymentTypeId = paymentTypeId;
+		this.serviceTypeId = serviceTypeId;
+		this.categoryId = categoryId;
 		this.callerDate = callerDate;
-		this.estado = estado;
+		this.stateId = stateId;
 	}
-	
-	public TaxiCaller(int idClient, double latitudeOrigin, double longitudeOrigin, double latitudeDestiny,
-			double longitudeDestiny, String originReferences, String paymentType, String serviceType, Date callerDate,
-			String estado) {
+
+	public TaxiCaller(int clientId, double latitudeOrigin, double longitudeOrigin, String originReferences,
+			double latitudeDestiny, double longitudeDestiny, String paymentTypeId, String serviceTypeId,
+			String categoryId, Date callerDate, String stateId) {
 		super();
-		this.idClient = idClient;
+		this.clientId = clientId;
 		this.latitudeOrigin = latitudeOrigin;
 		this.longitudeOrigin = longitudeOrigin;
+		this.originReferences = originReferences;
 		this.latitudeDestiny = latitudeDestiny;
 		this.longitudeDestiny = longitudeDestiny;
-		this.originReferences = originReferences;
-		this.paymentType = paymentType;
-		this.serviceType = serviceType;
+		this.paymentTypeId = paymentTypeId;
+		this.serviceTypeId = serviceTypeId;
+		this.categoryId = categoryId;
 		this.callerDate = callerDate;
-		this.estado = estado;
+		this.stateId = stateId;
 	}
 
 	public TaxiCaller() {
 		super();
-	}
-
-	
-	public int getIdClient() {
-		return idClient;
-	}
-	
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
-	}
-
-	public Date getCallerDate() {
-		return callerDate;
-	}
-	
-	public void setCallerDate(Date callerDate) {
-		this.callerDate = callerDate;
-	}
-	
-	public String getEstado() {
-		return estado;
-	}
-	
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 
 	public int getId() {
@@ -118,6 +98,14 @@ public class TaxiCaller{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
 	}
 
 	public double getLatitudeOrigin() {
@@ -136,6 +124,14 @@ public class TaxiCaller{
 		this.longitudeOrigin = longitudeOrigin;
 	}
 
+	public String getOriginReferences() {
+		return originReferences;
+	}
+
+	public void setOriginReferences(String originReferences) {
+		this.originReferences = originReferences;
+	}
+
 	public double getLatitudeDestiny() {
 		return latitudeDestiny;
 	}
@@ -152,28 +148,44 @@ public class TaxiCaller{
 		this.longitudeDestiny = longitudeDestiny;
 	}
 
-	public String getPaymentType() {
-		return paymentType;
+	public String getPaymentTypeId() {
+		return paymentTypeId;
 	}
 
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
+	public void setPaymentTypeId(String paymentTypeId) {
+		this.paymentTypeId = paymentTypeId;
 	}
 
-	public String getServiceType() {
-		return serviceType;
+	public String getServiceTypeId() {
+		return serviceTypeId;
 	}
 
-	public void setServiceType(String serviceType) {
-		this.serviceType = serviceType;
+	public void setServiceTypeId(String serviceTypeId) {
+		this.serviceTypeId = serviceTypeId;
 	}
-	
-	public String getOriginReferences() {
-		return originReferences;
+
+	public String getCategoryId() {
+		return categoryId;
 	}
-	
-	public void setOriginReferences(String originReferences) {
-		this.originReferences = originReferences;
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
-	
+
+	public Date getCallerDate() {
+		return callerDate;
+	}
+
+	public void setCallerDate(Date callerDate) {
+		this.callerDate = callerDate;
+	}
+
+	public String getStateId() {
+		return stateId;
+	}
+
+	public void setStateId(String stateId) {
+		this.stateId = stateId;
+	}
+
 }

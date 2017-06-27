@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "arched-hybrid-118216",
+  "private_key_id": "a8da3b5133fc8a9ed0ae76d9af028201495d3f31",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDWtDbgBFRioLYi\nD/OusDuHAlhOFhA85b/EQ1L1R9n+79AF2SHKNJwOh+Sb2cVGE06EC5nYrJme095S\n6Z7ivLaBkGkg3bRtojzSVW/Pojs23odv6Z3wePLU8wOhvOuICTlZvPtwV7gUTX8r\nn6HPloMdLBfynRN2byC1rCXR5uj0bQB0STAALoec10m03FcBvQiZeleYOWDmL1UA\n3nJf6O+5ZkKs6HvZI/9IyW3iQ0IIzmzNEMblPZOHKFzhd8JosIoU5Ihp8mm1qM2l\n4wrzaB+V5fb051RhYIYthWOaiARRXdhi/yWKs9Az3K9Rhzva+wHnK7RW809Tj3Vm\nxO+NnL/FAgMBAAECggEABsm70mlQoa2jFICcm7FGsIYKdK2N5d79qR7XyJl08vJy\nCT1MLDBtnqf9OlAwRH7nxJT5UDhkwvi/1q88Lr74pjACot9fjPfMJHo/BrmCVcHD\nVm50Z93rD4B/ZOWsLKjd/1BSQsMDNuEcXCy32PBRROLX/vuoWd45koTWzUQXqWKa\nAuAJyCpYtvfROSICJMoIa/4fla6RxuRmbxPLZDoTWvI3WZSw5gsesoQxeAp+vFiw\nNJoRVG7R4UzNJPezDFqjI1asFQzw6WDw8ZHtVGMwJ6vt+uYGEsYJQ8qY4L3xM5wu\n06VQVYL/7si2R/T8nuXvRKElBYKossJfpYOgEnV7IQKBgQD0KUEQqroyDdchV8Kg\ndpRNjrcEuldtpOsJ9OiUarlcXWXdXbRnPo07xtG8tuJMv2cCzuOTcHHX4FPzQ+kQ\nbVLcMkE1mh3Q3sq7ITmnqtotoX7gA63IWbsT87Qq/8V73qUaBy+0iv4bUyy2ji8U\nDjfwD2tGhFO1T5DobZ5KOJXwzwKBgQDhHU+zkjnoq5lWs66PJ80nBgAp3xleUU6B\n9+qwfOlzHA3zLBwNWNtd/iakyQkj4q4EhU8QDvhrkzlsXLY63vzgi28CSkSKOH3o\nscYwGA7d1UHR5duG/UEd/A7qG2ZeviocR4fInm7bNJ+IADjy7wp2WDHkmVWxEXPg\nA56K4a8jKwKBgEyWCCe/NcpvlvSJf64vo9M0GepsvPHSkjs8TBwJ4fy7+zDVrLnZ\n4BlJAw8L2q4yN5Ck7rOXyM3rOsoKmjeh4yTYyqWSoxmaWMMb5+bU67z2dEK2RLOc\nmdbnUbNPKVXyf51LdcZO9ugBTfwxW0kSMK+nVoH3Df7IZ27Qu58SYs33AoGAXAIA\n62IerQxF1fwGopgf740yT+rRkY0ly1Uq5QuI1vVmdjdXF9Vzg402+i74v2QMv+hE\nkkmsGzvHQpT6HkG5lYUn0AXO0beZLpxKZqnOmbhp+II8IYYtMTYuWlzskFilGX3a\n75JhuNJfSdTdcd1lp00Qx2Asd/ysIakZCaaIUJUCgYEAhsZ7L8SbwBwGPj2eV8g+\nvOg+ccpIB7IwNNgtSc8RclEIGbK5+FtpYLuDl+zbjYYpMwFcjrcVWCXWHEVK76fG\nlkiX1x4HQkPtsGCyx56+upN4dn9g/7cqqkhV5/ZOlmO/KQoUfSa2/Wp3PJpB7z8s\n1vzpP9vjEzlNaPOvdlVecc8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "protaxi-service-aux@arched-hybrid-118216.iam.gserviceaccount.com",
+  "client_id": "110367321858326059884",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/protaxi-service-aux%40arched-hybrid-118216.iam.gserviceaccount.com"
+}

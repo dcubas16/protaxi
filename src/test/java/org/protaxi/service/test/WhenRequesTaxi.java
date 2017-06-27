@@ -1,6 +1,7 @@
 package org.protaxi.service.test;
 
 import org.junit.Test;
+import org.protaxi.entities.ResponseInformation;
 import org.protaxi.services.TaxiService;
 import org.protaxi.test.util.TaxiMother;
 import org.protaxi.test.util.TestConfigurator;
@@ -15,9 +16,19 @@ public class WhenRequesTaxi extends TestConfigurator {
 	@Test
 	public void thenShouldRequestTaxi(){ 
 	
-		boolean isRequestSuccefull= taxiService.requestTaxi(TaxiMother.getTaxiCaller());
+		boolean isRequestSuccefull = taxiService.requestTaxi(TaxiMother.getTaxiCaller());
 		
 		Assert.isTrue(isRequestSuccefull);
+	}
+	
+	@Test
+	public void thenShouldSaveRequestTaxiConfirmation(){ 
+	
+		ResponseInformation isSaveRequestTaxiConfirmation = taxiService.saveRequestTaxiConfirmation(TaxiMother.getRequestTaxi());
+		
+		boolean isSuccess = isSaveRequestTaxiConfirmation.isSuccess();
+		
+		Assert.isTrue(isSuccess);
 	}
 	
 }

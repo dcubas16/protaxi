@@ -48,7 +48,8 @@ public class ClientControllerRestFul {
 	@RequestMapping(value = "/callTest", method = RequestMethod.GET, produces = "application/json")
 	public String callTest() {
 		System.out.println(new Date() + " -- CallTest");
-		return "{\"hola\":\"Hola Mundo\"}";
+		
+		return "{\"Protaxi\":\"Hola Mundo\"}";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
